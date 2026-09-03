@@ -1,143 +1,74 @@
 "use client";
 
 import React from "react";
-import { QuickDiagnoseWidget } from "@/components/QuickDiagnoseWidget";
-import { WaveDivider } from "@/components/WaveDivider";
 import { WhyChooseUs } from "@/components/WhyChooseUs";
 import { ServiceHighlights } from "@/components/ServiceHighlights";
 import { CtaBanner } from "@/components/CtaBanner";
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen flex flex-col bg-[#F8FAFC]">
-      {/* Hero Section with High Quality RO Service Visuals */}
-      <section className="pt-10 pb-16 sm:pt-14 sm:pb-20 bg-gradient-to-b from-[#F0FDFA] to-[#F8FAFC] hero-animate border-b border-[#CCFBF1]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            {/* Hero Left Column */}
-            <div className="lg:col-span-7 space-y-6 text-left">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#CCFBF1] text-xs font-semibold text-[#0F766E] border border-[#99F6E4]">
-                <span className="w-2 h-2 rounded-full bg-[#0D9488] animate-pulse"></span>
-                Certified Doorstep RO Technicians • 2-Hour Response
-              </div>
+    <div className="min-h-screen flex flex-col bg-white">
 
-              <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-[#0F172A] leading-[1.15]">
-                Pure, safe drinking water for your family with zero repair
-                hassle
-              </h1>
+      {/* ── CINEMATIC HERO with Background Image ── */}
+      <section className="relative min-h-[88vh] flex items-center hero-animate">
+        {/* BG Image */}
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: "url('https://images.pexels.com/photos/1346155/pexels-photo-1346155.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080')" }}
+        ></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0F172A]/90 via-[#0F172A]/75 to-[#0F172A]/40"></div>
 
-              <p className="text-base sm:text-lg text-[#475569] leading-relaxed max-w-2xl font-normal">
-                Jalcare RO delivers doorstep repair, genuine filter cartridge
-                replacements, TDS balancing, and annual AMC maintenance for
-                Kent, Aquaguard, Pureit, and all major RO purifiers.
-              </p>
+        <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
+          <div className="max-w-2xl space-y-6">
 
-              {/* Direct Action CTAs */}
-              <div className="pt-2 flex flex-col sm:flex-row items-center gap-4">
-                <a
-                  href="https://wa.me/917499933452?text=Hi%20Jalcare%20RO%2C%20I%20want%20to%20book%20a%20doorstep%20RO%20service."
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full sm:w-auto px-7 py-3.5 bg-[#25D366] hover:bg-[#128C7E] text-white font-semibold rounded-xl text-base transition-all flex items-center justify-center gap-2 shadow-md hover:shadow-lg"
-                >
-                  <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
-                    <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-0.999 3.648 3.742-0.981z" />
-                  </svg>
-                  Book Service on WhatsApp
-                </a>
-                <a
-                  href="tel:+917499933452"
-                  className="btn-secondary w-full sm:w-auto px-7 py-3.5 text-base font-semibold rounded-xl"
-                >
-                  Call +91 74999 33452
-                </a>
-              </div>
-
-              {/* Trust Metrics */}
-              <div className="pt-6 border-t border-[#CCFBF1] grid grid-cols-3 gap-4 text-xs text-[#475569]">
-                <div>
-                  <span className="font-serif font-bold text-xl text-[#0F172A] block">
-                    120 Mins
-                  </span>
-                  Guaranteed arrival
-                </div>
-                <div>
-                  <span className="font-serif font-bold text-xl text-[#0F172A] block">
-                    4.9 ★★★★★
-                  </span>
-                  From 1,200+ homes
-                </div>
-                <div>
-                  <span className="font-serif font-bold text-xl text-[#0F172A] block">
-                    100%
-                  </span>
-                  Genuine food-grade spares
-                </div>
-              </div>
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-xs sm:text-sm font-semibold text-emerald-300">
+              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+              Doorstep Service Available — 2 Hour Response
             </div>
 
-            {/* Hero Right Column: High End Vector RO Showcase & Quick Diagnose */}
-            <div className="lg:col-span-5 w-full space-y-6">
-              {/* Premium RO Machine Illustration Card */}
-              <div className="bg-white p-5 rounded-2xl border border-[#CCFBF1] shadow-md overflow-hidden text-left relative">
-                <div className="flex items-center justify-between mb-3">
-                  <span className="text-xs font-bold text-[#0D9488] bg-[#F0FDFA] px-2.5 py-1 rounded border border-[#CCFBF1]">
-                    💧 Premium RO Purifier Service
-                  </span>
-                  <span className="text-xs font-bold text-[#0F172A]">
-                    Diagnostic ₹299
-                  </span>
-                </div>
+            <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-extrabold text-white leading-[1.1]">
+              Your family deserves
+              <span className="block text-emerald-400">pure, safe water</span>
+            </h1>
 
-                {/* Vector RO Machine Diagram */}
-                <div className="w-full h-44 bg-gradient-to-tr from-[#0F766E] to-[#0D9488] rounded-xl relative overflow-hidden p-4 text-white flex items-center justify-between shadow-inner">
-                  <div className="space-y-1.5 z-10">
-                    <span className="text-[10px] tracking-widest uppercase bg-white/20 px-2 py-0.5 rounded font-semibold text-white">
-                      Aqua Pure 8-Stage
-                    </span>
-                    <h4 className="font-serif text-lg font-bold text-white">
-                      Copper + Mineral RO
-                    </h4>
-                    <p className="text-xs text-teal-100 max-w-[160px]">
-                      TDS balanced pure alkaline drinking water
-                    </p>
-                    <div className="pt-1 flex items-center gap-1.5 text-[11px] font-semibold text-emerald-200">
-                      <span className="w-2 h-2 rounded-full bg-emerald-400"></span>
-                      TDS Level: 45 PPM (Optimal)
-                    </div>
-                  </div>
+            <p className="text-sm sm:text-base lg:text-lg text-slate-300 leading-relaxed max-w-xl">
+              Expert RO water purifier repair, genuine filter replacement, TDS calibration,
+              and affordable annual maintenance — all at your doorstep within 2 hours.
+            </p>
 
-                  {/* RO Purifier Body Graphic */}
-                  <div className="w-28 h-36 bg-white/10 backdrop-blur-md rounded-lg border border-white/30 p-2.5 flex flex-col justify-between items-center relative shadow-lg shrink-0">
-                    <div className="w-full bg-white/20 h-2 rounded-full mb-1"></div>
-                    <div className="w-12 h-12 rounded-full border-2 border-emerald-300 flex items-center justify-center bg-white/10 my-auto">
-                      <svg
-                        className="w-7 h-7 text-emerald-300 fill-current"
-                        viewBox="0 0 24 24"
-                      >
-                        <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z" />
-                      </svg>
-                    </div>
-                    <div className="w-full text-[9px] text-center text-teal-100 font-mono bg-black/20 py-0.5 rounded">
-                      FILTER OK
-                    </div>
-                  </div>
-                </div>
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2">
+              <a
+                href="https://wa.me/917499933452?text=Hi%20Jalcare%20RO%2C%20I%20want%20to%20book%20a%20doorstep%20RO%20service."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-7 py-3.5 sm:py-4 bg-[#25D366] hover:bg-[#128C7E] text-white font-semibold rounded-xl text-sm sm:text-base transition-all flex items-center justify-center gap-2.5 shadow-xl hover:shadow-2xl hover:-translate-y-0.5"
+              >
+                <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+                Book on WhatsApp
+              </a>
+              <a href="tel:+917499933452" className="px-7 py-3.5 sm:py-4 bg-white/10 backdrop-blur hover:bg-white/20 text-white font-semibold rounded-xl text-sm sm:text-base border border-white/20 transition-all flex items-center justify-center gap-2">
+                📞 Call +91 74999 33452
+              </a>
+            </div>
 
-                <p className="text-xs text-[#475569] mt-3">
-                  Free TDS water testing & 2-hour doorstep response guarantee
-                  included with every visit.
-                </p>
+            {/* Trust strip */}
+            <div className="grid grid-cols-3 gap-6 pt-8 border-t border-white/15 max-w-md">
+              <div>
+                <span className="font-serif text-xl sm:text-2xl font-bold text-white block">2 Hr</span>
+                <span className="text-[11px] text-slate-400">Doorstep arrival</span>
               </div>
-
-              <QuickDiagnoseWidget />
+              <div>
+                <span className="font-serif text-xl sm:text-2xl font-bold text-white block">4.9★</span>
+                <span className="text-[11px] text-slate-400">1,200+ families</span>
+              </div>
+              <div>
+                <span className="font-serif text-xl sm:text-2xl font-bold text-white block">100%</span>
+                <span className="text-[11px] text-slate-400">Genuine parts</span>
+              </div>
             </div>
           </div>
         </div>
       </section>
-
-      {/* Subtle Wave Divider */}
-      <WaveDivider />
 
       {/* RO Service Gallery & Highlights Section */}
       <section className="py-16 bg-white border-b border-[#E2E8F0]">
