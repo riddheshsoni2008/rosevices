@@ -1,236 +1,319 @@
 "use client";
+
 import React from "react";
-
-const wa = (m: string) => `https://wa.me/917499933452?text=${encodeURIComponent(m)}`;
-
-const IMG = {
-  hero: "https://cdn.pixabay.com/photo/2017/09/23/11/43/water-2778436_1280.jpg",
-  ro1: "https://cdn.pixabay.com/photo/2019/10/06/10/03/water-purifier-4530540_640.jpg",
-  ro2: "https://cdn.pixabay.com/photo/2021/01/18/06/52/water-5926726_640.jpg",
-  drop: "https://cdn.pixabay.com/photo/2018/01/17/07/06/laptop-3087585_640.jpg",
-};
+import { QuickDiagnoseWidget } from "@/components/QuickDiagnoseWidget";
+import { WaveDivider } from "@/components/WaveDivider";
+import { WhyChooseUs } from "@/components/WhyChooseUs";
+import { ServiceHighlights } from "@/components/ServiceHighlights";
+import { CtaBanner } from "@/components/CtaBanner";
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen flex flex-col bg-[#F8FAFC]">
+      {/* Hero Section with High Quality RO Service Visuals */}
+      <section className="pt-10 pb-16 sm:pt-14 sm:pb-20 bg-gradient-to-b from-[#F0FDFA] to-[#F8FAFC] hero-animate border-b border-[#CCFBF1]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            {/* Hero Left Column */}
+            <div className="lg:col-span-7 space-y-6 text-left">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#CCFBF1] text-xs font-semibold text-[#0F766E] border border-[#99F6E4]">
+                <span className="w-2 h-2 rounded-full bg-[#0D9488] animate-pulse"></span>
+                Certified Doorstep RO Technicians • 2-Hour Response
+              </div>
 
-      {/* ── HERO ── */}
-      <section className="relative min-h-[85vh] lg:min-h-[92vh] flex items-center hero-animate">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#0F172A] via-[#0F766E] to-[#0D9488]"></div>
-        <div className="absolute inset-0 opacity-20" style={{backgroundImage:"url("+IMG.hero+")",backgroundSize:"cover",backgroundPosition:"center"}}></div>
-        <div className="absolute inset-0 bg-[#0F172A]/50"></div>
-
-        <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-
-            {/* Left text */}
-            <div className="space-y-5 sm:space-y-6 text-center lg:text-left">
-              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur border border-white/20 text-xs sm:text-sm font-semibold text-emerald-300">
-                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-                2-Hour Doorstep Response
-              </span>
-
-              <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-[1.1]">
-                Expert RO Water Purifier
-                <span className="block text-emerald-400">Repair & Service</span>
+              <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-[#0F172A] leading-[1.15]">
+                Pure, safe drinking water for your family with zero repair
+                hassle
               </h1>
 
-              <p className="text-sm sm:text-base lg:text-lg text-slate-300 leading-relaxed max-w-lg mx-auto lg:mx-0">
-                Local doorstep RO repair, filter replacement, membrane change, TDS calibration & AMC for Kent, Aquaguard, Livpure & all brands.
+              <p className="text-base sm:text-lg text-[#475569] leading-relaxed max-w-2xl font-normal">
+                Jalcare RO delivers doorstep repair, genuine filter cartridge
+                replacements, TDS balancing, and annual AMC maintenance for
+                Kent, Aquaguard, Pureit, and all major RO purifiers.
               </p>
 
-              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start">
-                <a href={wa("Hi Jalcare RO, I need doorstep RO service.")} target="_blank" rel="noopener noreferrer"
-                  className="px-6 sm:px-8 py-3.5 sm:py-4 bg-[#25D366] hover:bg-[#128C7E] text-white font-semibold rounded-xl text-sm sm:text-base transition-all flex items-center justify-center gap-2 shadow-xl">
-                  <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
-                  Book on WhatsApp
+              {/* Direct Action CTAs */}
+              <div className="pt-2 flex flex-col sm:flex-row items-center gap-4">
+                <a
+                  href="https://wa.me/917499933452?text=Hi%20Jalcare%20RO%2C%20I%20want%20to%20book%20a%20doorstep%20RO%20service."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full sm:w-auto px-7 py-3.5 bg-[#25D366] hover:bg-[#128C7E] text-white font-semibold rounded-xl text-base transition-all flex items-center justify-center gap-2 shadow-md hover:shadow-lg"
+                >
+                  <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                    <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-0.999 3.648 3.742-0.981z" />
+                  </svg>
+                  Book Service on WhatsApp
                 </a>
-                <a href="tel:+917499933452" className="px-6 sm:px-8 py-3.5 sm:py-4 bg-white/10 hover:bg-white/20 text-white font-semibold rounded-xl text-sm sm:text-base border border-white/20 transition-all flex items-center justify-center gap-2">
-                  📞 Call 74999 33452
+                <a
+                  href="tel:+917499933452"
+                  className="btn-secondary w-full sm:w-auto px-7 py-3.5 text-base font-semibold rounded-xl"
+                >
+                  Call +91 74999 33452
                 </a>
               </div>
 
-              <div className="grid grid-cols-3 gap-4 sm:gap-6 pt-6 border-t border-white/10 max-w-md mx-auto lg:mx-0">
-                <div><span className="font-serif text-xl sm:text-2xl font-bold text-white block">2 Hr</span><span className="text-[10px] sm:text-xs text-slate-400">Doorstep visit</span></div>
-                <div><span className="font-serif text-xl sm:text-2xl font-bold text-white block">4.9★</span><span className="text-[10px] sm:text-xs text-slate-400">1200+ homes</span></div>
-                <div><span className="font-serif text-xl sm:text-2xl font-bold text-white block">100%</span><span className="text-[10px] sm:text-xs text-slate-400">Genuine parts</span></div>
-              </div>
-            </div>
-
-            {/* Right — RO Product Card */}
-            <div className="hidden sm:block">
-              <div className="bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl sm:rounded-3xl p-4 sm:p-6 shadow-2xl max-w-md mx-auto lg:ml-auto">
-                <div className="bg-gradient-to-br from-white to-slate-50 rounded-xl sm:rounded-2xl p-4 sm:p-6 text-center space-y-4">
-                  <div className="w-full h-40 sm:h-48 lg:h-56 rounded-xl bg-gradient-to-br from-sky-50 to-teal-50 flex items-center justify-center text-6xl sm:text-7xl lg:text-8xl border border-slate-200">
-                    💧
-                  </div>
-                  <h3 className="font-serif text-lg sm:text-xl font-bold text-[#0F172A]">RO Water Purifier Service</h3>
-                  <p className="text-xs sm:text-sm text-[#475569]">Repair, Filter Change, AMC — All brands supported</p>
-                  <div className="flex items-center justify-between bg-[#F0FDFA] p-3 rounded-lg border border-[#CCFBF1]">
-                    <span className="text-xs sm:text-sm font-medium text-[#0F172A]">Diagnostic Visit</span>
-                    <span className="text-sm sm:text-base font-bold text-[#0D9488]">₹299</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── SERVICES ── */}
-      <section className="py-14 sm:py-16 lg:py-20 bg-[#F8FAFC]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-14 space-y-2 sm:space-y-3">
-            <span className="text-xs font-bold tracking-widest text-[#0D9488] uppercase">Our Services</span>
-            <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-[#0F172A]">Complete RO purifier solutions</h2>
-            <p className="text-xs sm:text-sm text-[#475569]">Doorstep repair, genuine filter spares, and affordable maintenance for every RO brand.</p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            {[
-              { icon:"🛠️", title:"Doorstep RO Repair", price:"₹299", desc:"Full diagnostic: leakage, low flow, pump noise, bad taste, motor check, TDS test.", wa:"I need doorstep RO repair service." },
-              { icon:"🧪", title:"Filter & Membrane Change", price:"From ₹650", desc:"Sediment, pre-carbon, RO membrane 75 GPD, post-carbon, copper mineral cartridge.", wa:"I need RO filter and membrane replacement." },
-              { icon:"🛡️", title:"Annual AMC Plans", price:"₹2,499/yr", desc:"Unlimited service visits, free filter replacements, priority emergency support for 1 year.", wa:"I want details for RO Annual AMC plan." },
-            ].map((s) => (
-              <div key={s.title} className="group bg-white rounded-xl sm:rounded-2xl border border-slate-200 p-5 sm:p-6 shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between">
+              {/* Trust Metrics */}
+              <div className="pt-6 border-t border-[#CCFBF1] grid grid-cols-3 gap-4 text-xs text-[#475569]">
                 <div>
-                  <div className="flex items-center justify-between mb-4">
-                    <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-[#F0FDFA] flex items-center justify-center text-xl sm:text-2xl border border-[#CCFBF1]">{s.icon}</div>
-                    <span className="text-xs sm:text-sm font-bold text-[#0D9488] bg-[#F0FDFA] px-2.5 py-1 rounded-lg border border-[#CCFBF1]">{s.price}</span>
-                  </div>
-                  <h3 className="font-serif text-lg sm:text-xl font-bold text-[#0F172A] mb-2">{s.title}</h3>
-                  <p className="text-xs sm:text-sm text-[#475569] leading-relaxed mb-4">{s.desc}</p>
+                  <span className="font-serif font-bold text-xl text-[#0F172A] block">
+                    120 Mins
+                  </span>
+                  Guaranteed arrival
                 </div>
-                <a href={wa("Hi Jalcare RO, "+s.wa)} target="_blank" rel="noopener noreferrer"
-                  className="w-full py-2.5 sm:py-3 bg-[#0D9488] hover:bg-[#0F766E] text-white text-xs sm:text-sm font-semibold rounded-lg flex items-center justify-center gap-1.5 transition-colors">
-                  Book on WhatsApp →
-                </a>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── HOW IT WORKS ── */}
-      <section className="py-14 sm:py-16 lg:py-20 bg-white border-y border-slate-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-10 sm:mb-14 space-y-2">
-            <span className="text-xs font-bold tracking-widest text-[#0D9488] uppercase">How It Works</span>
-            <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-[#0F172A]">3 simple steps to clean water</h2>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-0 sm:border sm:border-slate-200 sm:rounded-2xl sm:overflow-hidden sm:divide-x divide-slate-200">
-            {[
-              { num:"01", icon:"💬", title:"WhatsApp us your issue", desc:"Describe your RO problem or select a service — we respond within 5 minutes." },
-              { num:"02", icon:"🏠", title:"Technician at your door", desc:"Certified technician arrives within 2 hours with all genuine spare parts." },
-              { num:"03", icon:"✅", title:"Pay after satisfaction", desc:"No advance payment. Pay only when service is done and you are satisfied." },
-            ].map((s) => (
-              <div key={s.num} className="p-6 sm:p-8 lg:p-10 text-center space-y-3 sm:space-y-4 border border-slate-200 sm:border-0 rounded-xl sm:rounded-none">
-                <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-[#F0FDFA] flex items-center justify-center text-xl sm:text-2xl mx-auto border border-[#CCFBF1]">{s.icon}</div>
-                <span className="text-[10px] sm:text-xs font-bold text-[#0D9488] tracking-widest">STEP {s.num}</span>
-                <h3 className="font-serif text-base sm:text-lg font-bold text-[#0F172A]">{s.title}</h3>
-                <p className="text-xs sm:text-sm text-[#475569] leading-relaxed">{s.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── WHY TRUST US ── */}
-      <section className="py-14 sm:py-16 lg:py-20 bg-[#F8FAFC]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-            <div className="grid grid-cols-2 gap-3 sm:gap-4">
-              {[
-                { emoji:"💧", label:"RO Purifier", bg:"from-sky-100 to-teal-50" },
-                { emoji:"🔧", label:"Doorstep Repair", bg:"from-amber-50 to-orange-50" },
-                { emoji:"🧪", label:"Genuine Filters", bg:"from-emerald-50 to-teal-50" },
-                { emoji:"🛡️", label:"AMC Service", bg:"from-violet-50 to-indigo-50" },
-              ].map((c) => (
-                <div key={c.label} className={`bg-gradient-to-br ${c.bg} rounded-xl sm:rounded-2xl p-6 sm:p-8 lg:p-10 flex flex-col items-center justify-center text-center border border-slate-200 shadow-sm`}>
-                  <span className="text-4xl sm:text-5xl lg:text-6xl mb-2 sm:mb-3">{c.emoji}</span>
-                  <span className="text-xs sm:text-sm font-bold text-[#0F172A]">{c.label}</span>
+                <div>
+                  <span className="font-serif font-bold text-xl text-[#0F172A] block">
+                    4.9 ★★★★★
+                  </span>
+                  From 1,200+ homes
                 </div>
-              ))}
+                <div>
+                  <span className="font-serif font-bold text-xl text-[#0F172A] block">
+                    100%
+                  </span>
+                  Genuine food-grade spares
+                </div>
+              </div>
             </div>
 
-            <div className="space-y-6 sm:space-y-8 text-center lg:text-left">
-              <div className="space-y-3">
-                <span className="text-xs font-bold tracking-widest text-[#0D9488] uppercase">Why Trust Jalcare</span>
-                <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-[#0F172A] leading-tight">
-                  Honest service, genuine spares, zero hidden charges
-                </h2>
-                <p className="text-xs sm:text-sm text-[#475569] leading-relaxed max-w-lg mx-auto lg:mx-0">
-                  Local RO water purifier experts with 8+ years experience. We fix Kent, Aquaguard, Livpure, Pureit, Havells and all major brands at your doorstep.
+            {/* Hero Right Column: High End Vector RO Showcase & Quick Diagnose */}
+            <div className="lg:col-span-5 w-full space-y-6">
+              {/* Premium RO Machine Illustration Card */}
+              <div className="bg-white p-5 rounded-2xl border border-[#CCFBF1] shadow-md overflow-hidden text-left relative">
+                <div className="flex items-center justify-between mb-3">
+                  <span className="text-xs font-bold text-[#0D9488] bg-[#F0FDFA] px-2.5 py-1 rounded border border-[#CCFBF1]">
+                    💧 Premium RO Purifier Service
+                  </span>
+                  <span className="text-xs font-bold text-[#0F172A]">
+                    Diagnostic ₹299
+                  </span>
+                </div>
+
+                {/* Vector RO Machine Diagram */}
+                <div className="w-full h-44 bg-gradient-to-tr from-[#0F766E] to-[#0D9488] rounded-xl relative overflow-hidden p-4 text-white flex items-center justify-between shadow-inner">
+                  <div className="space-y-1.5 z-10">
+                    <span className="text-[10px] tracking-widest uppercase bg-white/20 px-2 py-0.5 rounded font-semibold text-white">
+                      Aqua Pure 8-Stage
+                    </span>
+                    <h4 className="font-serif text-lg font-bold text-white">
+                      Copper + Mineral RO
+                    </h4>
+                    <p className="text-xs text-teal-100 max-w-[160px]">
+                      TDS balanced pure alkaline drinking water
+                    </p>
+                    <div className="pt-1 flex items-center gap-1.5 text-[11px] font-semibold text-emerald-200">
+                      <span className="w-2 h-2 rounded-full bg-emerald-400"></span>
+                      TDS Level: 45 PPM (Optimal)
+                    </div>
+                  </div>
+
+                  {/* RO Purifier Body Graphic */}
+                  <div className="w-28 h-36 bg-white/10 backdrop-blur-md rounded-lg border border-white/30 p-2.5 flex flex-col justify-between items-center relative shadow-lg shrink-0">
+                    <div className="w-full bg-white/20 h-2 rounded-full mb-1"></div>
+                    <div className="w-12 h-12 rounded-full border-2 border-emerald-300 flex items-center justify-center bg-white/10 my-auto">
+                      <svg
+                        className="w-7 h-7 text-emerald-300 fill-current"
+                        viewBox="0 0 24 24"
+                      >
+                        <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z" />
+                      </svg>
+                    </div>
+                    <div className="w-full text-[9px] text-center text-teal-100 font-mono bg-black/20 py-0.5 rounded">
+                      FILTER OK
+                    </div>
+                  </div>
+                </div>
+
+                <p className="text-xs text-[#475569] mt-3">
+                  Free TDS water testing & 2-hour doorstep response guarantee
+                  included with every visit.
                 </p>
               </div>
-              <div className="grid grid-cols-2 gap-3 sm:gap-4">
-                {[
-                  { val:"8+", label:"Years experience" },
-                  { val:"1,200+", label:"Homes served" },
-                  { val:"100%", label:"Genuine parts" },
-                  { val:"120 min", label:"Doorstep arrival" },
-                ].map((s) => (
-                  <div key={s.label} className="bg-white p-4 sm:p-5 rounded-xl border border-slate-200 shadow-sm">
-                    <span className="font-serif text-xl sm:text-2xl font-bold text-[#0D9488] block">{s.val}</span>
-                    <span className="text-[10px] sm:text-xs text-[#475569]">{s.label}</span>
-                  </div>
-                ))}
-              </div>
-              <a href={wa("Hi Jalcare RO, tell me more about your services.")} target="_blank" rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-5 sm:px-6 py-3 sm:py-3.5 bg-[#0D9488] hover:bg-[#0F766E] text-white font-semibold rounded-xl text-xs sm:text-sm transition-all shadow-md">
-                💬 Chat on WhatsApp
-              </a>
+
+              <QuickDiagnoseWidget />
             </div>
           </div>
         </div>
       </section>
 
-      {/* ── PRICING ── */}
-      <section className="py-14 sm:py-16 lg:py-20 bg-white">
+      {/* Subtle Wave Divider */}
+      <WaveDivider />
+
+      {/* RO Service Gallery & Highlights Section */}
+      <section className="py-16 bg-white border-b border-[#E2E8F0]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-10 sm:mb-14 space-y-2 sm:space-y-3">
-            <span className="text-xs font-bold tracking-widest text-[#0D9488] uppercase">Transparent Pricing</span>
-            <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-[#0F172A]">No hidden charges</h2>
+          <div className="text-center max-w-3xl mx-auto mb-12 space-y-3">
+            <span className="text-xs font-bold tracking-wider text-[#0D9488] uppercase bg-[#F0FDFA] px-3 py-1 rounded-full border border-[#CCFBF1]">
+              Professional RO Workshop & Services
+            </span>
+            <h2 className="font-serif text-3xl font-bold text-[#0F172A]">
+              Complete RO Water Purifier Solutions
+            </h2>
+            <p className="text-sm text-[#475569]">
+              From emergency leak repairs to complete membrane replacement and
+              annual maintenance contracts (AMC).
+            </p>
           </div>
-          <div className="max-w-3xl mx-auto border border-slate-200 rounded-xl sm:rounded-2xl overflow-hidden divide-y divide-slate-100">
-            {[
-              { s:"Doorstep Diagnostic & Repair Visit", p:"₹299" },
-              { s:"Sediment & Pre-Carbon Filter Set", p:"₹650" },
-              { s:"RO Membrane 75 GPD (Food Grade)", p:"₹1,450" },
-              { s:"Complete Filter Kit (All Stages)", p:"₹1,999" },
-              { s:"Essential AMC (1 Year)", p:"₹2,499" },
-              { s:"Comprehensive AMC (1 Year)", p:"₹3,999" },
-              { s:"New Copper RO System (8-Stage)", p:"₹11,499" },
-            ].map((i,idx) => (
-              <div key={idx} className="flex items-center justify-between px-4 sm:px-6 py-3.5 sm:py-4 hover:bg-[#F0FDFA] transition-colors">
-                <span className="text-xs sm:text-sm text-[#0F172A] font-medium">{i.s}</span>
-                <span className="text-xs sm:text-sm font-bold text-[#0D9488] shrink-0 ml-4">{i.p}</span>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Card 1: Doorstep Repair */}
+            <div className="bg-[#F8FAFC] rounded-2xl overflow-hidden border border-[#E2E8F0] shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+              <div>
+                {/* Visual Header Graphic */}
+                <div className="h-44 bg-gradient-to-br from-[#0F766E] to-[#115E59] p-5 flex flex-col justify-between text-white relative">
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs font-semibold bg-white/20 px-2.5 py-0.5 rounded-full text-white">
+                      Doorstep Repair
+                    </span>
+                    <span className="text-xs font-bold text-emerald-300">
+                      ₹299 Visit
+                    </span>
+                  </div>
+                  <div className="space-y-1">
+                    <div className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center text-xl mb-2">
+                      🛠️
+                    </div>
+                    <h4 className="font-serif text-lg font-bold text-white">
+                      Diagnostic & Repair
+                    </h4>
+                    <p className="text-xs text-teal-100">
+                      Low flow, leakage, or unusual pump noise fix
+                    </p>
+                  </div>
+                </div>
+
+                <div className="p-6 text-left space-y-2">
+                  <h3 className="font-serif text-lg font-bold text-[#0F172A]">
+                    Expert Doorstep Repair
+                  </h3>
+                  <p className="text-xs text-[#475569] leading-relaxed">
+                    Fast diagnostic check for low flow, motor noise, water
+                    leakage, or bad water taste.
+                  </p>
+                </div>
               </div>
-            ))}
+
+              <div className="p-6 pt-0 text-left">
+                <a
+                  href="https://wa.me/917499933452?text=Hi%20Jalcare%20RO%2C%20I%20need%20doorstep%20RO%20repair%20service."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full py-2.5 bg-[#0D9488] hover:bg-[#0F766E] text-white text-xs font-semibold rounded-lg flex items-center justify-center gap-1.5 transition-colors"
+                >
+                  Book Repair on WhatsApp →
+                </a>
+              </div>
+            </div>
+
+            {/* Card 2: Filter & Membrane Replacement */}
+            <div className="bg-[#F8FAFC] rounded-2xl overflow-hidden border border-[#E2E8F0] shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+              <div>
+                {/* Visual Header Graphic */}
+                <div className="h-44 bg-gradient-to-br from-[#0D9488] to-[#0F766E] p-5 flex flex-col justify-between text-white relative">
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs font-semibold bg-white/20 px-2.5 py-0.5 rounded-full text-white">
+                      Filter Spares
+                    </span>
+                    <span className="text-xs font-bold text-amber-300">
+                      Food Grade
+                    </span>
+                  </div>
+                  <div className="space-y-1">
+                    <div className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center text-xl mb-2">
+                      🧪
+                    </div>
+                    <h4 className="font-serif text-lg font-bold text-white">
+                      75 GPD RO Membrane
+                    </h4>
+                    <p className="text-xs text-teal-100">
+                      Sediment + Carbon + Copper Mineral Cartridge
+                    </p>
+                  </div>
+                </div>
+
+                <div className="p-6 text-left space-y-2">
+                  <h3 className="font-serif text-lg font-bold text-[#0F172A]">
+                    Genuine Filter & Membrane Change
+                  </h3>
+                  <p className="text-xs text-[#475569] leading-relaxed">
+                    High GPD food-grade RO membrane, pre-carbon, sediment
+                    cartridge, and copper mineral filters.
+                  </p>
+                </div>
+              </div>
+
+              <div className="p-6 pt-0 text-left">
+                <a
+                  href="https://wa.me/917499933452?text=Hi%20Jalcare%20RO%2C%20I%20need%20RO%20filter%20cartridge%20replacement."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full py-2.5 bg-[#0D9488] hover:bg-[#0F766E] text-white text-xs font-semibold rounded-lg flex items-center justify-center gap-1.5 transition-colors"
+                >
+                  Book Filter Change →
+                </a>
+              </div>
+            </div>
+
+            {/* Card 3: Annual AMC Maintenance */}
+            <div className="bg-[#F8FAFC] rounded-2xl overflow-hidden border border-[#E2E8F0] shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+              <div>
+                {/* Visual Header Graphic */}
+                <div className="h-44 bg-gradient-to-br from-[#0F172A] to-[#1E293B] p-5 flex flex-col justify-between text-white relative">
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs font-semibold bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 px-2.5 py-0.5 rounded-full">
+                      1-Year Warranty
+                    </span>
+                    <span className="text-xs font-bold text-emerald-400">
+                      Save ₹1,500
+                    </span>
+                  </div>
+                  <div className="space-y-1">
+                    <div className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center text-xl mb-2">
+                      🛡️
+                    </div>
+                    <h4 className="font-serif text-lg font-bold text-white">
+                      Complete AMC Contract
+                    </h4>
+                    <p className="text-xs text-slate-300">
+                      Free filter replacement + unlimited repair visits
+                    </p>
+                  </div>
+                </div>
+
+                <div className="p-6 text-left space-y-2">
+                  <h3 className="font-serif text-lg font-bold text-[#0F172A]">
+                    Affordable Annual AMC Plans
+                  </h3>
+                  <p className="text-xs text-[#475569] leading-relaxed">
+                    Hassle-free 1-year unlimited maintenance contracts including
+                    free filter replacements and labor.
+                  </p>
+                </div>
+              </div>
+
+              <div className="p-6 pt-0 text-left">
+                <a
+                  href="https://wa.me/917499933452?text=Hi%20Jalcare%20RO%2C%20I%20want%20details%20for%20RO%20Annual%20AMC%20plan."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full py-2.5 bg-[#0D9488] hover:bg-[#0F766E] text-white text-xs font-semibold rounded-lg flex items-center justify-center gap-1.5 transition-colors"
+                >
+                  Inquire AMC Details →
+                </a>
+              </div>
+            </div>
           </div>
-          <p className="text-center mt-4 sm:mt-6"><a href="/services" className="text-xs sm:text-sm font-semibold text-[#0D9488] hover:underline">View full price list →</a></p>
         </div>
       </section>
 
-      {/* ── CTA BANNER ── */}
-      <section className="py-14 sm:py-16 lg:py-20 bg-gradient-to-br from-[#0F172A] via-[#0F766E] to-[#0D9488] text-center">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 space-y-4 sm:space-y-6">
-          <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-white">Is your RO purifier due for service?</h2>
-          <p className="text-sm sm:text-base text-slate-300 max-w-xl mx-auto">
-            Free water TDS test with every doorstep visit. Genuine parts, clear pricing, 100% satisfaction guaranteed.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center pt-2">
-            <a href={wa("Hi Jalcare RO, my RO needs service. Please send technician.")} target="_blank" rel="noopener noreferrer"
-              className="px-6 sm:px-8 py-3.5 sm:py-4 bg-[#25D366] hover:bg-[#128C7E] text-white font-semibold rounded-xl text-sm sm:text-base transition-all flex items-center justify-center gap-2 shadow-xl">
-              <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
-              WhatsApp Booking
-            </a>
-            <a href="tel:+917499933452" className="px-6 sm:px-8 py-3.5 sm:py-4 border border-white/30 hover:bg-white/10 text-white font-semibold rounded-xl text-sm sm:text-base transition-all flex items-center justify-center gap-2">
-              📞 Call +91 74999 33452
-            </a>
-          </div>
-        </div>
-      </section>
+      {/* Why Choose Us Section */}
+      <WhyChooseUs />
+
+      {/* Primary Service Highlights */}
+      <ServiceHighlights />
+
+      {/* CTA Banner */}
+      <CtaBanner />
     </div>
   );
 }
