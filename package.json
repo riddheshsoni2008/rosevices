@@ -4,9 +4,9 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "node --experimental-strip-types server.ts || ./.bin/node --experimental-strip-types server.ts",
-    "start": "node --experimental-strip-types server.ts || ./.bin/node --experimental-strip-types server.ts",
-    "build": "echo 'Build ready'"
+    "dev": "node --experimental-strip-types server.ts || next dev",
+    "build": "next build",
+    "start": "node --experimental-strip-types server.ts || next start"
   },
   "dependencies": {
     "mongodb": "^6.21.0",
