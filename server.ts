@@ -1,8 +1,8 @@
-import http from "node:http";
-import fs from "node:fs";
-import path from "node:path";
-import { URL } from "node:url";
-import os from "node:os";
+import http from "http";
+import fs from "fs";
+import path from "path";
+import { URL } from "url";
+import os from "os";
 
 const PORT: number = Number(process.env.PORT) || 3000;
 
