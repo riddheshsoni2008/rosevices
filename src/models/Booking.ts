@@ -1,4 +1,4 @@
-import { getBookingsCollection } from "../lib/db.ts";
+import { getBookingsCollection } from "../lib/db";
 
 export interface IBookingRecord {
   ticketId: string;
