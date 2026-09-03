@@ -2,14 +2,14 @@ import React from "react";
 
 export const Footer: React.FC = () => {
   return (
-    <footer className="bg-[#10201D] text-[#E7F3F1] pt-14 pb-10 border-t border-[#0E5C56]">
+    <footer className="bg-[#0F172A] text-slate-300 pt-16 pb-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-10 pb-10 border-b border-[#1D7A72]/40">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-10 pb-10 border-b border-slate-700/50">
           
-          {/* Column 1: Brand & Bio */}
+          {/* Brand */}
           <div className="space-y-4 md:col-span-1">
             <div className="flex items-center gap-2.5">
-              <div className="w-9 h-9 rounded bg-[#0E5C56] flex items-center justify-center text-white">
+              <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#0D9488] to-[#0F766E] flex items-center justify-center text-white shadow-md">
                 <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z" />
                 </svg>
@@ -18,82 +18,63 @@ export const Footer: React.FC = () => {
                 Jalcare RO
               </span>
             </div>
-            <p className="text-sm text-[#CFE6E2]/80 leading-relaxed">
-              Certified doorstep sales, repair, and annual maintenance service for household and commercial RO water purifiers.
+            <p className="text-sm text-slate-400 leading-relaxed">
+              Certified doorstep sales, repair, and annual maintenance for all household and commercial RO water purifiers.
             </p>
-            <div className="text-xs text-[#CFE6E2]/60 space-y-1">
-              <p>Operating hours: 8:00 AM – 8:30 PM (Mon-Sun)</p>
+            <div className="text-xs text-slate-500 space-y-1">
+              <p>Open: 8:00 AM – 8:30 PM (Mon–Sun)</p>
               <p>2-Hour Doorstep Response Guarantee</p>
             </div>
           </div>
 
-          {/* Column 2: Quick Links */}
+          {/* Quick Links */}
           <div>
-            <h3 className="font-serif text-base font-semibold text-white mb-4">
-              Quick Navigation
-            </h3>
-            <ul className="space-y-2.5 text-sm text-[#CFE6E2]/80">
-              <li>
-                <a href="/" className="hover:text-white transition-colors">
-                  Home
-                </a>
-              </li>
-              <li>
-                <a href="/services" className="hover:text-white transition-colors">
-                  Services & Price List
-                </a>
-              </li>
-              <li>
-                <a href="/help" className="hover:text-white transition-colors">
-                  RO Troubleshooting Checklist
-                </a>
-              </li>
-              <li>
-                <a href="/contact" className="hover:text-white transition-colors">
-                  Book Doorstep Repair
-                </a>
-              </li>
+            <h3 className="font-serif text-sm font-bold text-white mb-4 uppercase tracking-wider">Navigation</h3>
+            <ul className="space-y-2.5 text-sm text-slate-400">
+              <li><a href="/" className="hover:text-white transition-colors">Home</a></li>
+              <li><a href="/services" className="hover:text-white transition-colors">Services & Price List</a></li>
+              <li><a href="/help" className="hover:text-white transition-colors">Troubleshooting Guide</a></li>
+              <li><a href="/contact" className="hover:text-white transition-colors">Book Service</a></li>
             </ul>
           </div>
 
-          {/* Column 3: Key Services */}
+          {/* Services */}
           <div>
-            <h3 className="font-serif text-base font-semibold text-white mb-4">
-              Popular Services
-            </h3>
-            <ul className="space-y-2.5 text-sm text-[#CFE6E2]/80">
+            <h3 className="font-serif text-sm font-bold text-white mb-4 uppercase tracking-wider">Services</h3>
+            <ul className="space-y-2.5 text-sm text-slate-400">
               <li>RO Membrane Replacement</li>
-              <li>TDS Adjustment & Mineral Calibration</li>
-              <li>Pre-filter & Carbon Cartridge Change</li>
-              <li>Annual Maintenance Contract (AMC)</li>
-              <li>New Copper Alkaline RO Sales</li>
-              <li>Booster Pump & Leak Repair</li>
+              <li>TDS & Mineral Calibration</li>
+              <li>Filter & Cartridge Change</li>
+              <li>Annual AMC Contracts</li>
+              <li>Copper Alkaline RO Sales</li>
+              <li>Booster Pump Repair</li>
             </ul>
           </div>
 
-          {/* Column 4: Contact Info */}
+          {/* Contact */}
           <div>
-            <h3 className="font-serif text-base font-semibold text-white mb-4">
-              Contact & Support
-            </h3>
-            <div className="space-y-3 text-sm text-[#CFE6E2]/80">
-              <p className="flex items-start gap-2">
-                <span className="font-medium text-white shrink-0">Phone:</span>
+            <h3 className="font-serif text-sm font-bold text-white mb-4 uppercase tracking-wider">Contact</h3>
+            <div className="space-y-3 text-sm text-slate-400">
+              <p>
+                <span className="text-white font-medium block text-xs mb-0.5">Phone:</span>
                 <a href="tel:+917499933452" className="hover:text-white transition-colors">
                   +91 74999 33452
                 </a>
               </p>
-              <p className="flex items-start gap-2">
-                <span className="font-medium text-white shrink-0">Email:</span>
-                <a href="mailto:support@jalcarero.com" className="hover:text-white transition-colors">
-                  support@jalcarero.com
+              <p>
+                <span className="text-white font-medium block text-xs mb-0.5">WhatsApp:</span>
+                <a
+                  href="https://wa.me/917499933452"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-emerald-400 transition-colors"
+                >
+                  Chat on WhatsApp
                 </a>
               </p>
-              <p className="flex items-start gap-2">
-                <span className="font-medium text-white shrink-0">Address:</span>
-                <span>
-                  Shop No. 12, Jalcare Water Plaza, Sector 14 Main Road, Landmark: Near Central Bank Branch
-                </span>
+              <p>
+                <span className="text-white font-medium block text-xs mb-0.5">Workshop:</span>
+                Shop No. 12, RO Service Plaza, Main Market Road
               </p>
             </div>
           </div>
@@ -101,11 +82,9 @@ export const Footer: React.FC = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-[#CFE6E2]/60 gap-4">
+        <div className="pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
           <p>© 2026 Jalcare RO Solutions. All rights reserved.</p>
-          <p className="text-center sm:text-right">
-            Serving households, offices, and commercial establishments with pure, safe drinking water.
-          </p>
+          <p>Serving families with pure, safe drinking water.</p>
         </div>
       </div>
     </footer>
