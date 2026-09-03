@@ -22,7 +22,6 @@ export const Navbar: React.FC<{ currentPath?: string }> = ({ currentPath = "/" }
     { label: "Home", href: "/" },
     { label: "Services & Pricing", href: "/services" },
     { label: "Customer Support", href: "/help" },
-    { label: "Reviews", href: "/reviews" },
     { label: "Contact Us", href: "/contact" },
   ];
 
