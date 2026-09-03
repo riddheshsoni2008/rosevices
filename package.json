@@ -4,13 +4,11 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "node --experimental-strip-types server.ts || next dev",
+    "dev": "next dev",
     "build": "next build",
-    "start": "node --experimental-strip-types server.ts || next start"
+    "start": "next start"
   },
   "dependencies": {
-    "mongodb": "^6.21.0",
-    "mongoose": "^8.3.0",
     "next": "^14.2.0",
     "react": "^18.3.0",
     "react-dom": "^18.3.0"
