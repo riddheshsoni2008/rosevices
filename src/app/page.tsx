@@ -74,24 +74,53 @@ export default function HomePage() {
 
             </div>
 
-            {/* Hero Right Column: Service Showcase & Quick Diagnose */}
+            {/* Hero Right Column: High End Vector RO Showcase & Quick Diagnose */}
             <div className="lg:col-span-5 w-full space-y-6">
-              {/* Professional Visual Feature Card */}
-              <div className="bg-white p-3 rounded-2xl border border-[#CCFBF1] shadow-md overflow-hidden group">
-                <div className="relative h-64 rounded-xl overflow-hidden bg-[#F0FDFA]">
-                  <img
-                    src="https://images.unsplash.com/photo-1548839140-29a749e1cf4e?auto=format&fit=crop&w=1000&q=80"
-                    alt="Crystal Pure Drinking Water RO Purifier"
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                  <div className="absolute bottom-3 left-3 right-3 bg-white/90 backdrop-blur-md p-3 rounded-lg border border-white/50 text-left shadow-sm">
-                    <div className="flex items-center justify-between">
-                      <span className="text-xs font-bold text-[#0F172A]">Doorstep RO Repair & Diagnostic</span>
-                      <span className="text-xs font-bold text-[#0D9488]">Starting ₹299</span>
+              
+              {/* Premium RO Machine Illustration Card */}
+              <div className="bg-white p-5 rounded-2xl border border-[#CCFBF1] shadow-md overflow-hidden text-left relative">
+                <div className="flex items-center justify-between mb-3">
+                  <span className="text-xs font-bold text-[#0D9488] bg-[#F0FDFA] px-2.5 py-1 rounded border border-[#CCFBF1]">
+                    💧 Premium RO Purifier Service
+                  </span>
+                  <span className="text-xs font-bold text-[#0F172A]">Diagnostic ₹299</span>
+                </div>
+
+                {/* Vector RO Machine Diagram */}
+                <div className="w-full h-44 bg-gradient-to-tr from-[#0F766E] to-[#0D9488] rounded-xl relative overflow-hidden p-4 text-white flex items-center justify-between shadow-inner">
+                  <div className="space-y-1.5 z-10">
+                    <span className="text-[10px] tracking-widest uppercase bg-white/20 px-2 py-0.5 rounded font-semibold text-white">
+                      Aqua Pure 8-Stage
+                    </span>
+                    <h4 className="font-serif text-lg font-bold text-white">
+                      Copper + Mineral RO
+                    </h4>
+                    <p className="text-xs text-teal-100 max-w-[160px]">
+                      TDS balanced pure alkaline drinking water
+                    </p>
+                    <div className="pt-1 flex items-center gap-1.5 text-[11px] font-semibold text-emerald-200">
+                      <span className="w-2 h-2 rounded-full bg-emerald-400"></span>
+                      TDS Level: 45 PPM (Optimal)
                     </div>
-                    <p className="text-[11px] text-[#475569] mt-0.5">Free water TDS testing included with every service visit</p>
+                  </div>
+
+                  {/* RO Purifier Body Graphic */}
+                  <div className="w-28 h-36 bg-white/10 backdrop-blur-md rounded-lg border border-white/30 p-2.5 flex flex-col justify-between items-center relative shadow-lg shrink-0">
+                    <div className="w-full bg-white/20 h-2 rounded-full mb-1"></div>
+                    <div className="w-12 h-12 rounded-full border-2 border-emerald-300 flex items-center justify-center bg-white/10 my-auto">
+                      <svg className="w-7 h-7 text-emerald-300 fill-current" viewBox="0 0 24 24">
+                        <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z" />
+                      </svg>
+                    </div>
+                    <div className="w-full text-[9px] text-center text-teal-100 font-mono bg-black/20 py-0.5 rounded">
+                      FILTER OK
+                    </div>
                   </div>
                 </div>
+
+                <p className="text-xs text-[#475569] mt-3">
+                  Free TDS water testing & 2-hour doorstep response guarantee included with every visit.
+                </p>
               </div>
 
               <QuickDiagnoseWidget />
@@ -120,25 +149,41 @@ export default function HomePage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Card 1: Technician Repair */}
-            <div className="bg-[#F8FAFC] rounded-2xl overflow-hidden border border-[#E2E8F0] shadow-sm hover:shadow-md transition-shadow">
-              <div className="h-48 overflow-hidden bg-gray-100 relative">
-                <img
-                  src="https://images.unsplash.com/photo-1585829365295-ab7cd400c167?auto=format&fit=crop&w=1000&q=80"
-                  alt="Certified RO Technician Servicing Water Purifier"
-                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                />
+            
+            {/* Card 1: Doorstep Repair */}
+            <div className="bg-[#F8FAFC] rounded-2xl overflow-hidden border border-[#E2E8F0] shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+              <div>
+                {/* Visual Header Graphic */}
+                <div className="h-44 bg-gradient-to-br from-[#0F766E] to-[#115E59] p-5 flex flex-col justify-between text-white relative">
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs font-semibold bg-white/20 px-2.5 py-0.5 rounded-full text-white">
+                      Doorstep Repair
+                    </span>
+                    <span className="text-xs font-bold text-emerald-300">₹299 Visit</span>
+                  </div>
+                  <div className="space-y-1">
+                    <div className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center text-xl mb-2">
+                      🛠️
+                    </div>
+                    <h4 className="font-serif text-lg font-bold text-white">Diagnostic & Repair</h4>
+                    <p className="text-xs text-teal-100">Low flow, leakage, or unusual pump noise fix</p>
+                  </div>
+                </div>
+
+                <div className="p-6 text-left space-y-2">
+                  <h3 className="font-serif text-lg font-bold text-[#0F172A]">Expert Doorstep Repair</h3>
+                  <p className="text-xs text-[#475569] leading-relaxed">
+                    Fast diagnostic check for low flow, motor noise, water leakage, or bad water taste.
+                  </p>
+                </div>
               </div>
-              <div className="p-6 text-left space-y-2">
-                <h3 className="font-serif text-lg font-bold text-[#0F172A]">Expert Doorstep Repair</h3>
-                <p className="text-xs text-[#475569] leading-relaxed">
-                  Fast diagnostic check for low flow, abnormal noise, water leakage, or bad water taste.
-                </p>
+
+              <div className="p-6 pt-0 text-left">
                 <a
                   href="https://wa.me/917499933452?text=Hi%20Jalcare%20RO%2C%20I%20need%20doorstep%20RO%20repair%20service."
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1 text-xs font-bold text-[#0D9488] hover:underline pt-2"
+                  className="w-full py-2.5 bg-[#0D9488] hover:bg-[#0F766E] text-white text-xs font-semibold rounded-lg flex items-center justify-center gap-1.5 transition-colors"
                 >
                   Book Repair on WhatsApp →
                 </a>
@@ -146,54 +191,85 @@ export default function HomePage() {
             </div>
 
             {/* Card 2: Filter & Membrane Replacement */}
-            <div className="bg-[#F8FAFC] rounded-2xl overflow-hidden border border-[#E2E8F0] shadow-sm hover:shadow-md transition-shadow">
-              <div className="h-48 overflow-hidden bg-gray-100 relative">
-                <img
-                  src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1000&q=80"
-                  alt="Genuine RO Filter Cartridge Replacement"
-                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                />
+            <div className="bg-[#F8FAFC] rounded-2xl overflow-hidden border border-[#E2E8F0] shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+              <div>
+                {/* Visual Header Graphic */}
+                <div className="h-44 bg-gradient-to-br from-[#0D9488] to-[#0F766E] p-5 flex flex-col justify-between text-white relative">
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs font-semibold bg-white/20 px-2.5 py-0.5 rounded-full text-white">
+                      Filter Spares
+                    </span>
+                    <span className="text-xs font-bold text-amber-300">Food Grade</span>
+                  </div>
+                  <div className="space-y-1">
+                    <div className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center text-xl mb-2">
+                      🧪
+                    </div>
+                    <h4 className="font-serif text-lg font-bold text-white">75 GPD RO Membrane</h4>
+                    <p className="text-xs text-teal-100">Sediment + Carbon + Copper Mineral Cartridge</p>
+                  </div>
+                </div>
+
+                <div className="p-6 text-left space-y-2">
+                  <h3 className="font-serif text-lg font-bold text-[#0F172A]">Genuine Filter & Membrane Change</h3>
+                  <p className="text-xs text-[#475569] leading-relaxed">
+                    High GPD food-grade RO membrane, pre-carbon, sediment cartridge, and copper mineral filters.
+                  </p>
+                </div>
               </div>
-              <div className="p-6 text-left space-y-2">
-                <h3 className="font-serif text-lg font-bold text-[#0F172A]">Genuine Filter & Membrane Change</h3>
-                <p className="text-xs text-[#475569] leading-relaxed">
-                  High GPD food-grade RO membrane, pre-carbon, sediment cartridge, and copper mineral filters.
-                </p>
+
+              <div className="p-6 pt-0 text-left">
                 <a
                   href="https://wa.me/917499933452?text=Hi%20Jalcare%20RO%2C%20I%20need%20RO%20filter%20cartridge%20replacement."
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1 text-xs font-bold text-[#0D9488] hover:underline pt-2"
+                  className="w-full py-2.5 bg-[#0D9488] hover:bg-[#0F766E] text-white text-xs font-semibold rounded-lg flex items-center justify-center gap-1.5 transition-colors"
                 >
                   Book Filter Change →
                 </a>
               </div>
             </div>
 
-            {/* Card 3: AMC & New RO Sales */}
-            <div className="bg-[#F8FAFC] rounded-2xl overflow-hidden border border-[#E2E8F0] shadow-sm hover:shadow-md transition-shadow">
-              <div className="h-48 overflow-hidden bg-gray-100 relative">
-                <img
-                  src="https://images.unsplash.com/photo-1548839140-29a749e1cf4e?auto=format&fit=crop&w=1000&q=80"
-                  alt="Annual Maintenance Contract AMC & Copper RO Sales"
-                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                />
+            {/* Card 3: Annual AMC Maintenance */}
+            <div className="bg-[#F8FAFC] rounded-2xl overflow-hidden border border-[#E2E8F0] shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+              <div>
+                {/* Visual Header Graphic */}
+                <div className="h-44 bg-gradient-to-br from-[#0F172A] to-[#1E293B] p-5 flex flex-col justify-between text-white relative">
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs font-semibold bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 px-2.5 py-0.5 rounded-full">
+                      1-Year Warranty
+                    </span>
+                    <span className="text-xs font-bold text-emerald-400">Save ₹1,500</span>
+                  </div>
+                  <div className="space-y-1">
+                    <div className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center text-xl mb-2">
+                      🛡️
+                    </div>
+                    <h4 className="font-serif text-lg font-bold text-white">Complete AMC Contract</h4>
+                    <p className="text-xs text-slate-300">Free filter replacement + unlimited repair visits</p>
+                  </div>
+                </div>
+
+                <div className="p-6 text-left space-y-2">
+                  <h3 className="font-serif text-lg font-bold text-[#0F172A]">Affordable Annual AMC Plans</h3>
+                  <p className="text-xs text-[#475569] leading-relaxed">
+                    Hassle-free 1-year unlimited maintenance contracts including free filter replacements and labor.
+                  </p>
+                </div>
               </div>
-              <div className="p-6 text-left space-y-2">
-                <h3 className="font-serif text-lg font-bold text-[#0F172A]">Affordable Annual AMC Plans</h3>
-                <p className="text-xs text-[#475569] leading-relaxed">
-                  Hassle-free 1-year unlimited maintenance contracts including free filter replacements and labor.
-                </p>
+
+              <div className="p-6 pt-0 text-left">
                 <a
                   href="https://wa.me/917499933452?text=Hi%20Jalcare%20RO%2C%20I%20want%20details%20for%20RO%20Annual%20AMC%20plan."
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1 text-xs font-bold text-[#0D9488] hover:underline pt-2"
+                  className="w-full py-2.5 bg-[#0D9488] hover:bg-[#0F766E] text-white text-xs font-semibold rounded-lg flex items-center justify-center gap-1.5 transition-colors"
                 >
                   Inquire AMC Details →
                 </a>
               </div>
             </div>
+
           </div>
         </div>
       </section>
