@@ -74,7 +74,7 @@ export const Navbar: React.FC<{ currentPath?: string }> = ({ currentPath = "/" }
 
         {/* Desktop Call/Book Action Button */}
         <div className="hidden md:flex items-center gap-3">
-          <a href="tel:+919876543210" className="btn-secondary text-sm px-4 py-2">
+          <a href="tel:+917499933452" className="btn-secondary text-sm px-4 py-2">
             Call now
           </a>
           <a href="/contact" className="btn-primary text-sm px-4 py-2">
@@ -116,7 +116,7 @@ export const Navbar: React.FC<{ currentPath?: string }> = ({ currentPath = "/" }
           </div>
           <div className="pt-2 border-t border-[#CFE6E2] flex flex-col gap-2.5">
             <a
-              href="tel:+919876543210"
+              href="tel:+917499933452"
               className="btn-secondary w-full text-center py-2.5"
             >
               Call now

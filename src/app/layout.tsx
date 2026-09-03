@@ -27,7 +27,7 @@ export default function RootLayout({
 
         {/* Floating WhatsApp Quick Action Button */}
         <a
-          href="https://wa.me/919876543210?text=Hi%20Jalcare%20RO%2C%20I%20need%20doorstep%20RO%20water%20purifier%20service."
+          href="https://wa.me/917499933452?text=Hi%20Jalcare%20RO%2C%20I%20need%20doorstep%20RO%20water%20purifier%20service."
           target="_blank"
           rel="noopener noreferrer"
           className="fixed bottom-5 right-5 z-50 bg-[#25D366] hover:bg-[#128C7E] text-white p-3.5 rounded-full shadow-lg flex items-center gap-2 transition-all transform hover:scale-105"

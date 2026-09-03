@@ -2,9 +2,9 @@
 
 import React, { useState, useEffect } from "react";
 
-// Easily configurable WhatsApp & Phone contact number
-export const WHATSAPP_NUMBER = "919876543210"; 
-export const PHONE_DISPLAY = "+91 98765 43210";
+// Configured WhatsApp & Phone contact number
+export const WHATSAPP_NUMBER = "917499933452"; 
+export const PHONE_DISPLAY = "+91 74999 33452";
 
 export const BookingForm: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -123,7 +123,7 @@ export const BookingForm: React.FC = () => {
           pattern="[0-9]{10}"
           value={formData.phone}
           onChange={handleChange}
-          placeholder="10-digit mobile number (e.g. 9876543210)"
+          placeholder="10-digit mobile number (e.g. 7499933452)"
           className="w-full px-3.5 py-2.5 text-sm border border-[#CFE6E2] rounded-md bg-[#FBFDFC] text-[#10201D] focus:border-[#0E5C56] focus:outline-none min-h-[44px]"
         />
       </div>

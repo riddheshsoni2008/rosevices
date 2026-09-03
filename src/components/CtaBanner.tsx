@@ -20,16 +20,18 @@ export const CtaBanner: React.FC = () => {
 
         <div className="flex flex-col sm:flex-row items-center gap-3 shrink-0 w-full sm:w-auto">
           <a
-            href="tel:+919876543210"
+            href="tel:+917499933452"
             className="w-full sm:w-auto text-center px-6 py-3 border border-[#CFE6E2]/40 rounded-md text-sm font-medium text-white hover:bg-white/10 transition-colors min-h-[44px] flex items-center justify-center"
           >
-            Call now
+            Call +91 74999 33452
           </a>
           <a
-            href="/contact"
-            className="w-full sm:w-auto text-center px-6 py-3 bg-[#C98A2E] hover:bg-[#B27823] text-white rounded-md text-sm font-semibold transition-colors min-h-[44px] flex items-center justify-center shadow-sm"
+            href="https://wa.me/917499933452?text=Hi%20Jalcare%20RO%2C%20I%20need%20doorstep%20RO%20water%20purifier%20repair%20service."
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-full sm:w-auto text-center px-6 py-3 bg-[#25D366] hover:bg-[#128C7E] text-white rounded-md text-sm font-semibold transition-colors min-h-[44px] flex items-center justify-center shadow-sm gap-2"
           >
-            Book a repair
+            WhatsApp Booking
           </a>
         </div>
 
