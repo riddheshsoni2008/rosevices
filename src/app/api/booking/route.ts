@@ -1,12 +1,9 @@
 import { NextResponse } from "next/server";
-import { connectToDatabase } from "@/lib/db";
-import { Booking } from "@/models/Booking";
+import { createBooking, getAllBookings } from "@/models/Booking";
 
 export async function GET() {
   try {
-    await connectToDatabase();
-    const bookings = await Booking.find({}).sort({ createdAt: -1 });
-
+    const bookings = await getAllBookings();
     return NextResponse.json({
       success: true,
       count: bookings.length,
@@ -32,12 +29,7 @@ export async function POST(request: Request) {
       );
     }
 
-    await connectToDatabase();
-
-    const ticketId = "JAL-" + Math.floor(100000 + Math.random() * 900000);
-
-    const newBooking = await Booking.create({
-      ticketId,
+    const newBooking = await createBooking({
       name,
       phone,
       address,
@@ -49,7 +41,7 @@ export async function POST(request: Request) {
 
     return NextResponse.json({
       success: true,
-      ticketId,
+      ticketId: newBooking?.ticketId,
       message: "Booking confirmed and saved to MongoDB Atlas successfully",
       data: newBooking,
     });
