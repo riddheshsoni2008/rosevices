@@ -2,20 +2,22 @@
 
 import React, { useState, useEffect } from "react";
 
+// Easily configurable WhatsApp & Phone contact number
+export const WHATSAPP_NUMBER = "919876543210"; 
+export const PHONE_DISPLAY = "+91 98765 43210";
+
 export const BookingForm: React.FC = () => {
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
     address: "",
-    serviceType: "Repair & Diagnostic Visit",
-    preferredTime: "Morning (8 AM - 12 PM)",
+    serviceType: "Repair & Diagnostic Visit (₹299)",
+    preferredTime: "Immediate Emergency (Within 2 Hours)",
     comments: "",
   });
 
-  const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
   const [ticketId, setTicketId] = useState("");
 
-  // Auto populate selected item/issue from URL query params
   useEffect(() => {
     if (typeof window !== "undefined") {
       const urlParams = new URLSearchParams(window.location.search);
@@ -27,7 +29,7 @@ export const BookingForm: React.FC = () => {
         setFormData((prev) => ({
           ...prev,
           serviceType: `Diagnosed Issue: ${issueParam}`,
-          comments: `Quick diagnose symptom selected: ${issueParam}`,
+          comments: `Symptom selected: ${issueParam}`,
         }));
       } else if (itemParam) {
         setFormData((prev) => ({
@@ -52,77 +54,43 @@ export const BookingForm: React.FC = () => {
     }));
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setStatus("submitting");
 
-    try {
-      const res = await fetch("/api/booking", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
-      });
+    const randomTicket = "JAL-" + Math.floor(100000 + Math.random() * 900000);
+    setTicketId(randomTicket);
 
-      const data = await res.json();
-      if (data.success) {
-        setTicketId(data.ticketId);
-        setStatus("success");
-      } else {
-        setStatus("error");
-      }
-    } catch (err) {
-      // Fallback success simulation if offline fetch occurs
-      const randomTicket = "JAL-" + Math.floor(100000 + Math.random() * 900000);
-      setTicketId(randomTicket);
-      setStatus("success");
-    }
+    const message = `💧 *JALCARE RO SERVICE BOOKING* 💧
+---------------------------------------
+👤 *Customer Name:* ${formData.name}
+📱 *Contact Number:* ${formData.phone}
+🛠️ *Service Needed:* ${formData.serviceType}
+🕒 *Time Slot:* ${formData.preferredTime}
+📍 *Address:* ${formData.address}
+📝 *Notes:* ${formData.comments || "N/A"}
+---------------------------------------
+🎫 *Ticket Ref:* ${randomTicket}`;
+
+    const encodedMessage = encodeURIComponent(message);
+    const waUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`;
+
+    // Open WhatsApp directly
+    window.open(waUrl, "_blank");
   };
 
-  if (status === "success") {
-    return (
-      <div className="bg-[#E7F3F1] border border-[#0E5C56] rounded-lg p-6 text-left space-y-4">
-        <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-full bg-[#0E5C56] text-white flex items-center justify-center font-bold">
-            ✓
-          </div>
-          <div>
-            <h3 className="font-serif text-lg font-bold text-[#10201D]">
-              Doorstep service request confirmed!
-            </h3>
-            <p className="text-xs text-[#43554F]">
-              Ticket Reference: <span className="font-semibold text-[#0E5C56]">{ticketId}</span>
-            </p>
-          </div>
-        </div>
-
-        <p className="text-xs text-[#10201D] leading-relaxed">
-          Thank you, <span className="font-semibold">{formData.name}</span>. Our technician will call you shortly on{" "}
-          <span className="font-semibold">{formData.phone}</span> to confirm arrival at your location.
-        </p>
-
-        <div className="bg-white p-3.5 rounded border border-[#CFE6E2] text-xs text-[#43554F] space-y-1">
-          <p><strong className="text-[#10201D]">Requested Service:</strong> {formData.serviceType}</p>
-          <p><strong className="text-[#10201D]">Preferred Time:</strong> {formData.preferredTime}</p>
-          <p><strong className="text-[#10201D]">Address:</strong> {formData.address}</p>
-        </div>
-
-        <button
-          onClick={() => setStatus("idle")}
-          className="btn-secondary text-xs py-2 px-4"
-        >
-          Book another service
-        </button>
-      </div>
-    );
-  }
-
   return (
-    <form onSubmit={handleSubmit} className="bg-white border border-[#CFE6E2] rounded-lg p-6 space-y-4">
-      <h3 className="font-serif text-xl font-bold text-[#10201D]">
-        Book doorstep service appointment
-      </h3>
+    <form onSubmit={handleSubmit} className="bg-white border border-[#CFE6E2] rounded-lg p-6 space-y-4 shadow-sm">
+      <div className="flex items-center justify-between">
+        <h3 className="font-serif text-xl font-bold text-[#10201D]">
+          Book Doorstep RO Appointment
+        </h3>
+        <span className="bg-[#25D366]/10 text-[#128C7E] px-2.5 py-1 rounded text-xs font-semibold flex items-center gap-1">
+          💬 Instant WhatsApp Booking
+        </span>
+      </div>
+
       <p className="text-xs text-[#43554F]">
-        Fill out your details below for same-day repair or water purifier demonstration.
+        Fill details below to send direct WhatsApp booking to our service team.
       </p>
 
       {/* Name */}
@@ -172,14 +140,14 @@ export const BookingForm: React.FC = () => {
           onChange={handleChange}
           className="w-full px-3.5 py-2.5 text-sm border border-[#CFE6E2] rounded-md bg-[#FBFDFC] text-[#10201D] focus:border-[#0E5C56] focus:outline-none min-h-[44px]"
         >
-          <option value="Repair & Diagnostic Visit">On-demand repair & diagnostic check (₹299)</option>
-          <option value="Filter & Sediment Cartridge Replacement">Filter & sediment cartridge replacement (₹650)</option>
-          <option value="RO Membrane Replacement">RO membrane replacement 75 GPD (₹1,450)</option>
-          <option value="Essential AMC Annual Contract">Essential AMC annual contract (₹2,499)</option>
-          <option value="Comprehensive Complete AMC">Comprehensive complete AMC (₹3,999)</option>
-          <option value="Jalcare Aqua Pure 8-Stage Copper RO">Jalcare Aqua Pure 8-Stage Copper RO (₹11,499)</option>
-          <option value="Jalcare Compact UV+RO">Jalcare Compact UV+RO (₹8,999)</option>
-          <option value="Commercial 50 LPH Purifier">Commercial 50 LPH Purifier (₹24,500)</option>
+          <option value="Repair & Diagnostic Visit (₹299)">On-demand repair & diagnostic check (₹299)</option>
+          <option value="Filter & Sediment Cartridge Replacement (₹650)">Filter & sediment cartridge replacement (₹650)</option>
+          <option value="RO Membrane Replacement 75 GPD (₹1,450)">RO membrane replacement 75 GPD (₹1,450)</option>
+          <option value="Essential AMC Annual Contract (₹2,499)">Essential AMC annual contract (₹2,499)</option>
+          <option value="Comprehensive Complete AMC (₹3,999)">Comprehensive complete AMC (₹3,999)</option>
+          <option value="Jalcare Aqua Pure 8-Stage Copper RO (₹11,499)">Jalcare Aqua Pure 8-Stage Copper RO (₹11,499)</option>
+          <option value="Jalcare Compact UV+RO (₹8,999)">Jalcare Compact UV+RO (₹8,999)</option>
+          <option value="Commercial 50 LPH Purifier (₹24,500)">Commercial 50 LPH Purifier (₹24,500)</option>
         </select>
       </div>
 
@@ -214,7 +182,7 @@ export const BookingForm: React.FC = () => {
           rows={2}
           value={formData.address}
           onChange={handleChange}
-          placeholder="Flat / House No, Street name, Sector/Colony, Landmark"
+          placeholder="House No, Street, Landmark, Sector/Area"
           className="w-full px-3.5 py-2.5 text-sm border border-[#CFE6E2] rounded-md bg-[#FBFDFC] text-[#10201D] focus:border-[#0E5C56] focus:outline-none"
         ></textarea>
       </div>
@@ -230,21 +198,23 @@ export const BookingForm: React.FC = () => {
           rows={2}
           value={formData.comments}
           onChange={handleChange}
-          placeholder="e.g., Purifier brand is Kent Grand, leaking from bottom plastic filter bowl"
+          placeholder="e.g., Kent Grand RO, bad taste or water leaking"
           className="w-full px-3.5 py-2.5 text-sm border border-[#CFE6E2] rounded-md bg-[#FBFDFC] text-[#10201D] focus:border-[#0E5C56] focus:outline-none"
         ></textarea>
       </div>
 
       <button
         type="submit"
-        disabled={status === "submitting"}
-        className="btn-primary w-full py-3 text-sm min-h-[44px]"
+        className="w-full bg-[#25D366] hover:bg-[#128C7E] text-white font-medium py-3 px-4 rounded-md transition-colors flex items-center justify-center gap-2 text-sm min-h-[44px] shadow-sm"
       >
-        {status === "submitting" ? "Submitting request..." : "Book doorstep appointment"}
+        <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
+          <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-0.999 3.648 3.742-0.981z"/>
+        </svg>
+        Send Direct WhatsApp Booking
       </button>
 
       <p className="text-[11px] text-[#43554F] text-center">
-        No upfront payment required. Pay only after service completion & satisfaction.
+        No upfront payment required. Instant response on WhatsApp!
       </p>
     </form>
   );
