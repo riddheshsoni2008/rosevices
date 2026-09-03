@@ -1,0 +1,21 @@
+{
+  "name": "jalcare-ro",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node --experimental-strip-types server.ts || ./.bin/node --experimental-strip-types server.ts",
+    "start": "node --experimental-strip-types server.ts || ./.bin/node --experimental-strip-types server.ts",
+    "build": "echo 'Build ready'"
+  },
+  "dependencies": {
+    "mongodb": "^6.21.0",
+    "mongoose": "^8.3.0",
+    "next": "^14.2.0",
+    "react": "^18.3.0",
+    "react-dom": "^18.3.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.0"
+  }
+}

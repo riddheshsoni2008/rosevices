@@ -1,0 +1,192 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..800;1,9..144,300..800&family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --bg-paper: #FBFDFC;
+  --text-ink: #10201D;
+  --text-soft: #43554F;
+  --teal-primary: #0E5C56;
+  --teal-hover: #1D7A72;
+  --teal-light: #E7F3F1;
+  --teal-border: #CFE6E2;
+  --amber-accent: #C98A2E;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--bg-paper);
+  color: var(--text-ink);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+body {
+  background-color: var(--bg-paper);
+  color: var(--text-ink);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Typography styles matching guidelines */
+h1, h2, h3, h4, .font-serif-custom {
+  font-family: 'Fraunces', Georgia, serif;
+  color: var(--text-ink);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+/* Focus styles for keyboard accessibility */
+:focus-visible {
+  outline: 2px solid var(--teal-primary);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Hairline border utility */
+.border-hairline {
+  border: 1px solid var(--teal-border);
+}
+
+.border-b-hairline {
+  border-bottom: 1px solid var(--teal-border);
+}
+
+.border-t-hairline {
+  border-top: 1px solid var(--teal-border);
+}
+
+.bg-section-tint {
+  background-color: var(--teal-light);
+}
+
+/* Primary button with subtle wave/ripple hover effect */
+.btn-primary {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  font-weight: 500;
+  font-size: 0.95rem;
+  color: #FFFFFF;
+  background-color: var(--teal-primary);
+  border: 1px solid var(--teal-primary);
+  border-radius: 6px;
+  cursor: pointer;
+  overflow: hidden;
+  transition: background-color 0.25s ease, border-color 0.25s ease, transform 0.15s ease;
+  min-height: 44px;
+}
+
+.btn-primary::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.4s ease-out, height 0.4s ease-out, opacity 0.4s ease-out;
+  opacity: 0;
+}
+
+.btn-primary:hover {
+  background-color: var(--teal-hover);
+  border-color: var(--teal-hover);
+}
+
+.btn-primary:hover::after {
+  width: 250px;
+  height: 250px;
+  opacity: 1;
+}
+
+.btn-primary:active {
+  transform: scale(0.98);
+}
+
+/* Secondary button */
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  font-weight: 500;
+  font-size: 0.95rem;
+  color: var(--teal-primary);
+  background-color: transparent;
+  border: 1px solid var(--teal-border);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+  min-height: 44px;
+}
+
+.btn-secondary:hover {
+  background-color: var(--teal-light);
+  border-color: var(--teal-primary);
+}
+
+/* Hero Entrance Animation */
+@keyframes heroEntrance {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-animate {
+  animation: heroEntrance 550ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .hero-animate {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Price row hover tint */
+.price-row-hover {
+  transition: background-color 0.2s ease;
+}
+
+.price-row-hover:hover {
+  background-color: var(--teal-light);
+}
+
+/* Accordion expand/collapse transition helper */
+.accordion-content {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.accordion-content.open {
+  grid-template-rows: 1fr;
+}
+
+.accordion-inner {
+  overflow: hidden;
+}
