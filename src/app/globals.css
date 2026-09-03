@@ -2,17 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..800;1,9..144,300..800&family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
 
 :root {
-  --bg-paper: #FBFDFC;
-  --text-ink: #10201D;
-  --text-soft: #43554F;
-  --teal-primary: #0E5C56;
-  --teal-hover: #1D7A72;
-  --teal-light: #E7F3F1;
-  --teal-border: #CFE6E2;
-  --amber-accent: #C98A2E;
+  --bg-paper: #F8FAFC;
+  --text-ink: #0F172A;
+  --text-soft: #475569;
+  --teal-primary: #0D9488;
+  --teal-hover: #0F766E;
+  --teal-light: #F0FDFA;
+  --teal-border: #CCFBF1;
+  --amber-accent: #D97706;
 }
 
 * {
@@ -25,7 +25,7 @@ html {
   scroll-behavior: smooth;
   background-color: var(--bg-paper);
   color: var(--text-ink);
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   font-size: 16px;
   line-height: 1.6;
 }
@@ -38,19 +38,19 @@ body {
   flex-direction: column;
 }
 
-/* Typography styles matching guidelines */
-h1, h2, h3, h4, .font-serif-custom {
-  font-family: 'Fraunces', Georgia, serif;
+/* Aesthetic Headline Typography System */
+h1, h2, h3, h4, .font-serif, .font-serif-custom {
+  font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif !important;
   color: var(--text-ink);
-  font-weight: 600;
-  letter-spacing: -0.02em;
+  font-weight: 700;
+  letter-spacing: -0.025em;
 }
 
 /* Focus styles for keyboard accessibility */
 :focus-visible {
   outline: 2px solid var(--teal-primary);
   outline-offset: 2px;
-  border-radius: 4px;
+  border-radius: 6px;
 }
 
 /* Hairline border utility */
@@ -70,74 +70,61 @@ h1, h2, h3, h4, .font-serif-custom {
   background-color: var(--teal-light);
 }
 
-/* Primary button with subtle wave/ripple hover effect */
+/* Primary Button - Vibrant Aesthetic Pill Button */
 .btn-primary {
   position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   padding: 0.75rem 1.5rem;
-  font-weight: 500;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 600;
   font-size: 0.95rem;
   color: #FFFFFF;
-  background-color: var(--teal-primary);
-  border: 1px solid var(--teal-primary);
-  border-radius: 6px;
+  background: linear-gradient(135deg, #0D9488 0%, #0F766E 100%);
+  border: 1px solid #0F766E;
+  border-radius: 8px;
   cursor: pointer;
   overflow: hidden;
-  transition: background-color 0.25s ease, border-color 0.25s ease, transform 0.15s ease;
+  box-shadow: 0 4px 12px rgba(13, 148, 136, 0.25);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   min-height: 44px;
 }
 
-.btn-primary::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 0;
-  height: 0;
-  background: rgba(255, 255, 255, 0.25);
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-  transition: width 0.4s ease-out, height 0.4s ease-out, opacity 0.4s ease-out;
-  opacity: 0;
-}
-
 .btn-primary:hover {
-  background-color: var(--teal-hover);
-  border-color: var(--teal-hover);
-}
-
-.btn-primary:hover::after {
-  width: 250px;
-  height: 250px;
-  opacity: 1;
+  background: linear-gradient(135deg, #0F766E 0%, #115E59 100%);
+  box-shadow: 0 6px 16px rgba(13, 148, 136, 0.35);
+  transform: translateY(-1px);
 }
 
 .btn-primary:active {
-  transform: scale(0.98);
+  transform: translateY(0) scale(0.98);
 }
 
-/* Secondary button */
+/* Secondary Button */
 .btn-secondary {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   padding: 0.75rem 1.5rem;
-  font-weight: 500;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 600;
   font-size: 0.95rem;
-  color: var(--teal-primary);
-  background-color: transparent;
-  border: 1px solid var(--teal-border);
-  border-radius: 6px;
+  color: #0D9488;
+  background-color: #FFFFFF;
+  border: 1px solid #CCFBF1;
+  border-radius: 8px;
   cursor: pointer;
-  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.04);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
   min-height: 44px;
 }
 
 .btn-secondary:hover {
-  background-color: var(--teal-light);
-  border-color: var(--teal-primary);
+  background-color: #F0FDFA;
+  border-color: #99F6E4;
+  color: #0F766E;
+  transform: translateY(-1px);
 }
 
 /* Hero Entrance Animation */
@@ -156,28 +143,13 @@ h1, h2, h3, h4, .font-serif-custom {
   animation: heroEntrance 550ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-/* Reduced motion preference */
-@media (prefers-reduced-motion: reduce) {
-  *, ::before, ::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
-  .hero-animate {
-    animation: none;
-    opacity: 1;
-    transform: none;
-  }
-}
-
 /* Price row hover tint */
 .price-row-hover {
   transition: background-color 0.2s ease;
 }
 
 .price-row-hover:hover {
-  background-color: var(--teal-light);
+  background-color: #F0FDFA;
 }
 
 /* Accordion expand/collapse transition helper */

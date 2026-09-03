@@ -8,23 +8,24 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        paper: "#FBFDFC",
-        ink: "#10201D",
-        soft: "#43554F",
+        paper: "#F8FAFC",
+        ink: "#0F172A",
+        soft: "#475569",
         teal: {
-          primary: "#0E5C56",
-          hover: "#1D7A72",
-          light: "#E7F3F1",
-          border: "#CFE6E2",
+          primary: "#0D9488",
+          hover: "#0F766E",
+          light: "#F0FDFA",
+          border: "#CCFBF1",
         },
         amber: {
-          accent: "#C98A2E",
-          hover: "#B27823",
+          accent: "#D97706",
+          hover: "#B45309",
         },
       },
       fontFamily: {
-        serif: ["Fraunces", "Georgia", "Cambria", "Times New Roman", "serif"],
-        sans: ["Inter", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "sans-serif"],
+        serif: ["Outfit", "system-ui", "sans-serif"],
+        heading: ["Outfit", "system-ui", "sans-serif"],
+        sans: ["Plus Jakarta Sans", "Inter", "-apple-system", "BlinkMacSystemFont", "sans-serif"],
       },
     },
   },
