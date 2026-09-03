@@ -4,7 +4,7 @@ import path from "node:path";
 import { URL } from "node:url";
 import os from "node:os";
 
-const PORT = process.env.PORT || 3000;
+const PORT: number = Number(process.env.PORT) || 3000;
 
 // Auto-load .env.local if present
 const envPath = path.join(process.cwd(), ".env.local");
